@@ -36,9 +36,12 @@ class MyHeader extends HTMLElement {
             <div class="item">Projects</div>
             <div class="item">Fun</div>
             <div class="item">${getLabel("home")}</div>
+            <div id="123"></div>
         </div>
       </div>`
     ;
+
+    console.log(document.getElementById("123"));
 
     shadow.innerHTML = content;
     shadow.appendChild(style);

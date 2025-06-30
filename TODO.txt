@@ -1,2 +1,2 @@
-Language component -> try get first
+Language component -> try get first -> vérifier qu'on a les bon labels saved quand on change de langue
 your name, online
