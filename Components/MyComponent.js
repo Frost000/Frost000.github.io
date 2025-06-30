@@ -1,7 +1,7 @@
 class MyComponent extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' });
+    //this.attachShadow({ mode: 'open' });
     const style = `
       <style>
       .header{
@@ -15,7 +15,7 @@ class MyComponent extends HTMLElement {
       </div>
       `;
 
-    this.shadowRoot.innerHTML = style + html;
+    this.innerHTML = style + html;
   };
 
   connectedCallback() {

@@ -1,2 +1,4 @@
 Language component -> try get first -> vérifier qu'on a les bon labels saved quand on change de langue
 your name, online
+Faire un color picker pour le text ?
+Faire une version phone sized

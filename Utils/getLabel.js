@@ -1,23 +1,37 @@
+let labels;
 function getLabel(key) {
     const language = sessionStorage.getItem('language') ?? navigator.language.slice(0, 2);
-    let labels = JSON.parse(sessionStorage.getItem("labels")) ?? null;
+    labels = JSON.parse(sessionStorage.getItem("labels")) ?? null;
 
     if(labels == null){
         fetch(`/Utils/${language}.json`).then(data => data.json()).then(json => {
             sessionStorage.setItem("labels", JSON.stringify(json));
-            console.log(key);
-            console.log(document.getElementById(key));
-            console.log("yes");
+            labels = json;
+            FillLabel(key, 0)
         });
         return /*html*/`
-        <div id=${key}></div>
+        <div id=${"label-"+key}></div>
         `;
     }else{
-        return TryFindKey(key);
+        return TryFindLabel(key);
     }
 }
 
-function TryFindKey(key){
+function FillLabel(key, depth){
+    if(depth >= 100){
+        console.log(`Page took too long to load, abandoning:${key}`)
+        return;
+    }
+
+    const target = document.getElementById("label-"+key);
+    if(target == null){
+        setTimeout(FillLabel, 100, key, depth+1);
+    } else{
+        target.outerHTML = TryFindLabel(key)
+    }
+}
+
+function TryFindLabel(key){
     try{
         return labels[key];
     } catch{

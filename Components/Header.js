@@ -1,50 +1,50 @@
 class MyHeader extends HTMLElement {
   constructor() {
     super();
-    const shadow = this.attachShadow({ mode: 'open' });
 
     const style = document.createElement("style");
     style.textContent = /*css*/`
         .header{
+            position: sticky;
             top: 0;
             width: 100%;
             height: 8vh;
-            background-color: red;
             border-bottom: 5px solid black;
             display : flex;
             justify-content: center;
-            gap: 10px;
+            background-color: white;
         }
         .container{
             width: 45%;
-            background-color: pink;
             display: flex;
-            gap: 10px;
+            gap: 40px;
             justify-content: center;
         }
         .item{
-            background-color: blue;
-            margin-top: 10px;
+            margin-top: 5px;
             margin-bottom: 10px;
+            font-family: BlueOcean;
+            font-size: 4vh;
+
+            a{
+              color: black;
+              text-decoration: none;
+            }
         }`
     ;
 
     const content = /*html*/`
       <div class="header">
         <div class="container">
-            <div class="item"><h1>Home</h1></div>
-            <div class="item">Projects</div>
-            <div class="item">Fun</div>
-            <div class="item">${getLabel("home")}</div>
-            <div id="123"></div>
+          <div class="item"><a href="/">${getLabel("home")}</a></div>
+          <div class="item"><a href="/Projects">${getLabel("projects")}</a></div>
+          <div class="item"><a href="/Online">${getLabel("online")}</a></div>
         </div>
       </div>`
     ;
 
-    console.log(document.getElementById("123"));
-
-    shadow.innerHTML = content;
-    shadow.appendChild(style);
+    this.innerHTML = content;
+    this.appendChild(style);
   };
 
   connectedCallback() {
