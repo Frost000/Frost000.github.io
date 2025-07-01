@@ -4,32 +4,49 @@ class MyHeader extends HTMLElement {
 
     const style = document.createElement("style");
     style.textContent = /*css*/`
+        :root{
+          --header-size: 8vh;
+          --text-size: 4vh;
+          --container-padding: 0%;
+        }
+
         .header{
             position: sticky;
             top: 0;
             width: 100%;
-            height: 8vh;
-            border-bottom: 5px solid black;
+            height: var(--header-size);
+            border-bottom: 0.6vh solid black;
             display : flex;
             justify-content: center;
             background-color: white;
+            transition: 0.4s;
         }
         .container{
             width: 45%;
             display: flex;
-            gap: 40px;
+            gap:1.5vw;
             justify-content: center;
+            padding-left: var(--container-padding);
+            transition: 0.7s;
         }
         .item{
-            margin-top: 5px;
-            margin-bottom: 10px;
+            margin-top: 0.4vh;
+            margin-bottom: 0.8vh;
             font-family: BlueOcean;
-            font-size: 4vh;
-
+            font-size: var(--text-size);
+            transition: 0.4s;
             a{
               color: black;
               text-decoration: none;
             }
+        }
+        .settings{
+          transition: 0.4s;
+          height: var(--text-size);
+          width: var(--text-size);
+          fill: none;
+          stroke-width: 1.5;
+          stroke: black;
         }`
     ;
 
@@ -39,6 +56,7 @@ class MyHeader extends HTMLElement {
           <div class="item"><a href="/">${getLabel("home")}</a></div>
           <div class="item"><a href="/Projects">${getLabel("projects")}</a></div>
           <div class="item"><a href="/Online">${getLabel("online")}</a></div>
+          <div class="item"><a href="#" onclick=>${getLabel("settings")}</a></div>
         </div>
       </div>`
     ;
@@ -48,12 +66,24 @@ class MyHeader extends HTMLElement {
   };
 
   connectedCallback() {
-    console.log('MyHeader added to page');
+    addEventListener("scroll", (event) => manageScroll());
   }
 }
 
-function manageScroll() {
+function tryCallSidebar(){
+  console.log("tried calling sidebar");
+}
 
+function manageScroll() {
+  if (document.documentElement.scrollTop > 250) {
+    document.documentElement.style.setProperty('--header-size', '4vh');
+    document.documentElement.style.setProperty('--text-size', '2vh');
+    document.documentElement.style.setProperty('--container-padding', '60%');
+  } else {
+    document.documentElement.style.setProperty('--header-size', '8vh');
+    document.documentElement.style.setProperty('--text-size', '4vh');
+    document.documentElement.style.setProperty('--container-padding', '0%');
+  }
 }
 
 customElements.define('my-header', MyHeader);
