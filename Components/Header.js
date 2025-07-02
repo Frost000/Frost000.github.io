@@ -56,7 +56,7 @@ class MyHeader extends HTMLElement {
           <div class="item"><a href="/">${getLabel("home")}</a></div>
           <div class="item"><a href="/Projects">${getLabel("projects")}</a></div>
           <div class="item"><a href="/Online">${getLabel("online")}</a></div>
-          <div class="item"><a href="#" onclick=>${getLabel("settings")}</a></div>
+          <div class="item"><a href="#" onclick="">${getLabel("settings")}</a></div>
         </div>
       </div>`
     ;

@@ -5,18 +5,13 @@ class MySidebar extends HTMLElement {
     const style = document.createElement("style");
     style.textContent = /*css*/`
     .sidebar{
-        position: absolute;
+        position: sticky;
         top: 0;
         left: 0;
         height: 100vh;
-        width: 100px;
-
-        .container{
-          background-color: blue;
-        }
-    }
-
-    `
+        width: 30vw;
+        background-color: pink;
+    }`
     ;
 
     const content = /*html*/`
