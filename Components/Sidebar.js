@@ -4,19 +4,23 @@ class MySidebar extends HTMLElement {
 
     const style = document.createElement("style");
     style.textContent = /*css*/`
+
     .sidebar{
-        position: sticky;
-        top: 0;
-        left: 0;
+        position: fixed;
+        display: block;
+        top: 0px;
+        left: 0px;
         height: 100vh;
         width: 30vw;
         background-color: pink;
+        transition: 0.5s;
     }`
     ;
 
     const content = /*html*/`
-      <div class="sidebar">
+      <div class="sidebar" id="sidebar">
         <div class="container">
+          <a href="#" onclick="closeSidebar()"> Close </a>
         </div>
       </div>`
     ;
@@ -26,8 +30,12 @@ class MySidebar extends HTMLElement {
   };
 
   connectedCallback() {
-    console.log("sidebar");
   }
+}
+
+function closeSidebar()
+{
+  document.getElementById("sidebar").style.display = "none";
 }
 
 customElements.define('my-sidebar', MySidebar);

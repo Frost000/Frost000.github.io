@@ -2,3 +2,5 @@ Language component -> try get first -> vérifier qu'on a les bon labels saved qu
 your name, online
 Dark Mode
 Faire une version phone sized
+
+Sidebar move avec le reste de la page, pas de go back up la page avec <a>
