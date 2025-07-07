@@ -75,14 +75,15 @@ function tryCallSidebar() {
 }
 
 function manageScroll() {
-  if (document.documentElement.scrollTop > 250) {
-    document.documentElement.style.setProperty('--header-size', '4vh');
-    document.documentElement.style.setProperty('--text-size', '2vh');
-    document.documentElement.style.setProperty('--container-padding', '60%');
-  } else {
+  if(document.documentElement.scrollTop < 250) {
     document.documentElement.style.setProperty('--header-size', '8vh');
     document.documentElement.style.setProperty('--text-size', '4vh');
     document.documentElement.style.setProperty('--container-padding', '0%');
+  }
+  if(document.documentElement.scrollTop > 290){
+    document.documentElement.style.setProperty('--header-size', '4vh');
+    document.documentElement.style.setProperty('--text-size', '2vh');
+    document.documentElement.style.setProperty('--container-padding', '60%');
   }
 }
 
