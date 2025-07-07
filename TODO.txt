@@ -2,5 +2,7 @@ Language component -> try get first -> vérifier qu'on a les bon labels saved qu
 your name, online
 Dark Mode
 Faire une version phone sized
+Satisfy 0scar (dans online)
 
+Header - Gérer le spot parfaitement entre les deux key qui fait que le header shake
 Sidebar move avec le reste de la page, pas de go back up la page avec <a>
