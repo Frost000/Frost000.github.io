@@ -4,7 +4,6 @@ class MySidebar extends HTMLElement {
 
     const style = document.createElement("style");
     style.textContent = /*css*/`
-
     .sidebar{
         position: fixed;
         display: block;
@@ -49,7 +48,7 @@ class MySidebar extends HTMLElement {
           </div>
           <div class="sidebar-content">
             <div class="sidebar-item">
-              Drop Down language
+              <language-selector></language-selector>
             </div>
             <div class="sidebar-item">
               DarkMode
